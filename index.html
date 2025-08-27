@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextWave Consulting</title>
+  <style>
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9fbff;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* Layout */
+    header {
+      background: #0a2540;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      height: 40px;
+      border-radius: 8px;
+    }
+    nav a {
+      margin-left: 20px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(to right, #0a2540, #193b64);
+      color: #fff;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease forwards;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #0a2540;
+    }
+
+    /* Services */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img {
+      width: 40px;
+      margin-bottom: 1rem;
+    }
+    .card h3 { margin-bottom: 1rem; color: #193b64; }
+    .muted { color: #666; font-size: 0.95rem; }
+
+    /* Founder */
+    .founder {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a2540;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    footer .logo img {
+      height: 30px;
+    }
+    footer p { margin-top: 1rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="NextWave Consulting Logo">
+      <span>NextWave Consulting</span>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Empowering Businesses with Data & Insights</h1>
+    <p>We help businesses harness the power of data through consulting, analytics, and scalable data engineering solutions.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <img src="images/analytics-icon.svg" alt="Analytics Icon">
+        <h3>Data & Analytics</h3>
+        <p class="muted">Customer insights, marketing analytics, dashboards, and KPI frameworks to drive growth.</p>
+      </div>
+      <div class="card">
+        <img src="images/engineering-icon.svg" alt="Engineering Icon">
+        <h3>Data Engineering</h3>
+        <p class="muted">Building reliable data pipelines and platforms to ensure your data is always ready for analysis.</p>
+      </div>
+      <div class="card">
+        <img src="images/strategy-icon.svg" alt="Strategy Icon">
+        <h3>Consulting</h3>
+        <p class="muted">Expert guidance in data strategy, business intelligence, and digital transformation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section id="founder" style="background:#f0f4fa">
+    <h2>Founder</h2>
+    <div class="founder">
+      <h3>Founder — Analytics & Data Engineering</h3>
+      <p class="muted">
+        Background in Mathematics & Statistics with experience as a Market Research Analyst and Data Engineer.  
+        Skilled in data analysis, marketing research & analytics, identifying customer insights that drive revenue growth,  
+        and building scalable data pipelines and platforms to support decision-making.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center">Get in touch: <a href="mailto:info@nextwave.com">info@nextwave.com</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="logo">
+      <img src="images/logo.png" alt="NextWave Consulting Logo">
+      <span>NextWave Consulting</span>
+    </div>
+    <p>&copy; 2025 NextWave Consulting. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
