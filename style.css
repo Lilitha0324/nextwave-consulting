@@ -1,12 +1,34 @@
+/* --- Hero Section Animation --- */
 .hero h1 {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s; /* optional: slight delay for smooth effect */
 }
 
+.hero p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s; /* paragraph fades in after h1 */
+}
+
+.hero .btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.8s; /* button comes in last */
+}
+
+/* --- Keyframes --- */
 @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
