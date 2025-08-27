@@ -1,195 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NextWave Consulting</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NextWave Consulting | 360° Digital Business Consulting</title>
+  <meta name="description" content="NextWave Consulting — 360° digital business consulting: analytics, strategy, automation, and platform delivery." />
   <style>
-    /* Reset & base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f9fbff;
+    :root {
+      --brand-primary:#0a6cff;
+      --brand-secondary:#00b4d8;
+      --brand-dark:#0b1b34;
+      --text:#233041;
+      --muted:#5b6b7b;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --ring: rgba(10,108,255,.2);
+      --shadow: 0 10px 30px rgba(3,18,44,.08);
+      --radius: 16px;
     }
-    a { text-decoration: none; color: inherit; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial}
+    a{color:var(--brand-primary);text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin-inline:auto}
 
-    /* Layout */
-    header {
-      background: #0a2540;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 1px 0 rgba(10,108,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .logo img {
-      height: 40px;
-      border-radius: 8px;
+      height: 55px; /* bigger size */
+      width: auto;
     }
-    nav a {
-      margin-left: 20px;
-      font-weight: bold;
-      color: #fff;
+    .logo span {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--brand-dark);
     }
+    .nav a{margin-left:20px;color:var(--text);font-weight:600}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand-primary);color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:700;box-shadow:0 8px 20px var(--ring)}
+    .btn.secondary{background:#e7efff;color:var(--brand-primary)}
 
     /* Hero */
-    .hero {
-      background: linear-gradient(to right, #0a2540, #193b64);
-      color: #fff;
-      padding: 6rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.2s ease forwards;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .hero{padding:64px 0 36px;background:linear-gradient(180deg,#eef5ff,transparent)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+    h1{font-size:clamp(28px,4.2vw,48px);line-height:1.1;margin:0 0 14px;color:var(--brand-dark)}
+    .eyebrow{display:inline-block;background:#e9f2ff;color:var(--brand-primary);padding:6px 12px;border-radius:999px;font-weight:700;letter-spacing:.3px;margin-bottom:10px}
+    .lead{font-size:clamp(16px,1.8vw,20px);color:var(--muted);margin:0 0 22px}
+    .hero-card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .pill{display:inline-block;background:#f1f5ff;color:#2a4aff;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:700}
 
     /* Sections */
-    section {
-      padding: 4rem 2rem;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #0a2540;
-    }
+    section{padding:52px 0}
+    h2{font-size:clamp(22px,3.2vw,34px);margin:0 0 18px;color:var(--brand-dark)}
+    .grid{display:grid;gap:18px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
 
-    /* Services */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .card:hover { transform: translateY(-5px); }
-    .card img {
-      width: 40px;
-      margin-bottom: 1rem;
-    }
-    .card h3 { margin-bottom: 1rem; color: #193b64; }
-    .muted { color: #666; font-size: 0.95rem; }
+    /* Process */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .step .n{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:#eef4ff;color:var(--brand-primary);font-weight:800;margin-bottom:10px}
 
-    /* Founder */
-    .founder {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      text-align: center;
-    }
+    /* Founders */
+    .founders{display:grid;grid-template-columns:1fr;gap:18px} /* only 1 founder now */
+    .founder{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+
+    /* CTA */
+    .cta{background:linear-gradient(180deg,#e6faff, #eef5ff);border-radius:var(--radius);padding:28px;display:flex;gap:18px;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}
 
     /* Footer */
-    footer {
-      background: #0a2540;
-      color: #fff;
-      padding: 2rem;
+    footer{
+      background: var(--brand-primary);
+      color:#fff;
+      padding:30px 0;
+      margin-top:40px;
       text-align: center;
     }
+    footer .logo {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
     footer .logo img {
-      height: 30px;
+      height: 45px;
+    }
+    footer .logo span {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-left: 8px;
     }
     footer p { margin-top: 1rem; font-size: 0.9rem; }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .founders{grid-template-columns:1fr}
+      footer .cols{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <div class="logo">
-      <img src="images/logo.png" alt="NextWave Consulting Logo">
-      <span>NextWave Consulting</span>
+    <div class="container nav">
+      <div class="logo">
+        <img src="./images/logo.png" alt="NextWave Consulting Logo">
+        <span>NextWave Consulting</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#founders">Founder</a>
+        <a href="#contact" class="btn secondary">Contact</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#founder">Founder</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Empowering Businesses with Data & Insights</h1>
-    <p>We help businesses harness the power of data through consulting, analytics, and scalable data engineering solutions.</p>
-  </section>
-
-  <!-- Services -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="card">
-        <img src="images/analytics-icon.svg" alt="Analytics Icon">
-        <h3>Data & Analytics</h3>
-        <p class="muted">Customer insights, marketing analytics, dashboards, and KPI frameworks to drive growth.</p>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">360° Digital Business Consulting</span>
+          <h1>Diagnose. Design. Deliver.<br/> Data-driven growth for modern business.</h1>
+          <p class="lead">We help organisations increase revenue, improve efficiency, and future-proof growth with end-to-end consulting — from analytics and strategy to platforms, automation, and optimisation.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#contact" class="btn">Book a discovery call</a>
+            <a href="#services" class="btn secondary">Explore services</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <span class="pill">What we do</span>
+          <ul>
+            <li>Marketing & product analytics that uncover growth levers</li>
+            <li>Digital platforms & data pipelines that scale with you</li>
+            <li>Automation & AI that remove friction and boost efficiency</li>
+            <li>Operating model & process optimisation across functions</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <img src="images/engineering-icon.svg" alt="Engineering Icon">
-        <h3>Data Engineering</h3>
-        <p class="muted">Building reliable data pipelines and platforms to ensure your data is always ready for analysis.</p>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container grid">
+        <h2>About NextWave</h2>
+        <p class="muted">NextWave Consulting is a 360° digital consulting firm that helps businesses thrive in a competitive, technology-driven marketplace. Unlike niche firms, we partner across the full journey — diagnosing opportunities, designing pragmatic roadmaps, and delivering measurable outcomes.</p>
+        <div class="cards">
+          <div class="card"><h3>Mission</h3><p>Diagnose, design, and deliver holistic strategies that address every digital aspect of a company’s operations.</p></div>
+          <div class="card"><h3>What sets us apart</h3><p>End-to-end capability across analytics, platforms, automation, and business optimisation — with measurable impact.</p></div>
+          <div class="card"><h3>Outcomes</h3><p>Increased sales, improved efficiency, and future-proofed growth built on data-driven decisions.</p></div>
+        </div>
       </div>
-      <div class="card">
-        <img src="images/strategy-icon.svg" alt="Strategy Icon">
-        <h3>Consulting</h3>
-        <p class="muted">Expert guidance in data strategy, business intelligence, and digital transformation.</p>
+    </section>
+
+    <!-- Services -->
+    <section id="services" style="background:#f0f5ff">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Data & Analytics</h3>
+            <p class="muted">Marketing analytics, customer insights, experimentation, dashboards, and KPI frameworks to drive growth.</p>
+          </div>
+          <div class="card">
+            <h3>Digital Platforms</h3>
+            <p class="muted">Modern data stacks, integration, and scalable platforms that enable reliable, governed data products.</p>
+          </div>
+          <div class="card">
+            <h3>Automation & AI</h3>
+            <p class="muted">Process automation and AI solutions that remove manual work and accelerate decision-making.</p>
+          </div>
+          <div class="card">
+            <h3>Strategy & Operating Model</h3>
+            <p class="muted">Pragmatic roadmaps, change enablement, and process optimisation aligned to measurable business value.</p>
+          </div>
+          <div class="card">
+            <h3>Experience & Growth</h3>
+            <p class="muted">CX/UX reviews, journey analytics, and product growth loops that compound over time.</p>
+          </div>
+          <div class="card">
+            <h3>Enablement</h3>
+            <p class="muted">Upskilling, playbooks, and ways-of-working that embed capability inside your teams.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Founder -->
-  <section id="founder" style="background:#f0f4fa">
-    <h2>Founder</h2>
-    <div class="founder">
-      <h3>Founder — Analytics & Data Engineering</h3>
-      <p class="muted">
-        Background in Mathematics & Statistics with experience as a Market Research Analyst and Data Engineer.  
-        Skilled in data analysis, marketing research & analytics, identifying customer insights that drive revenue growth,  
-        and building scalable data pipelines and platforms to support decision-making.
-      </p>
-    </div>
-  </section>
+    <!-- Process -->
+    <section id="process">
+      <div class="container">
+        <h2>How we work</h2>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><h3>Diagnose</h3><p class="muted">Assess goals, data, and processes to pinpoint the biggest value opportunities.</p></div>
+          <div class="step"><div class="n">2</div><h3>Design</h3><p class="muted">Shape a pragmatic roadmap: what to build, automate, and measure first.</p></div>
+          <div class="step"><div class="n">3</div><h3>Deliver</h3><p class="muted">Stand up solutions quickly, iterating with clear milestones and ownership.</p></div>
+          <div class="step"><div class="n">4</div><h3>Embed</h3><p class="muted">Enable your teams with playbooks, training, and sustainable ways of working.</p></div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center">Get in touch: <a href="mailto:info@nextwave.com">info@nextwave.com</a></p>
-  </section>
+    <!-- Founder -->
+    <section id="founders" style="background:#f9fbff">
+      <div class="container">
+        <h2>Founder</h2>
+        <div class="founders">
+          <div class="founder">
+            <h3>Founder — Analytics & Data Engineering</h3>
+            <p class="muted">Background in Mathematics & Statistics with experience as a Market Research Analyst and Data Engineer. Skilled in data analysis, building scalable pipelines, marketing research & analytics, and identifying customer insights that drive revenue growth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Footer -->
+    <!-- CTA -->
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Ready to ride the next wave?</h2>
+            <p class="muted">Book a 30-minute discovery call and we’ll map your fastest path to impact.</p>
+          </div>
+          <a class="btn" href="mailto:info@nextwaveconsulting.com">Contact us</a>
+        </div>
+        <div class="card" style="margin-top:18px">
+          <h3>Get in touch</h3>
+          <p class="muted">Email: <a href="mailto:info@nextwaveconsulting.com">info@nextwaveconsulting.com</a> · Phone: +27 12 345 6789</p>
+          <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch.');" class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+            <input required placeholder="First name" style="padding:12px 14px;border:1px solid #d9e2ef;border-radius:12px" />
+            <input required placeholder="Last name" style="padding:12px 14px;border:1px solid #d9e2ef;border-radius:12px" />
+            <input required type="email" placeholder="Work email" style="padding:12px 14px;border:1px solid #d9e2ef;border-radius:12px;grid-column:1/-1" />
+            <textarea required placeholder="How can we help?" rows="4" style="padding:12px 14px;border:1px solid #d9e2ef;border-radius:12px;grid-column:1/-1"></textarea>
+            <button class="btn" style="justify-self:start">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <div class="logo">
-      <img src="images/logo.png" alt="NextWave Consulting Logo">
+      <img src="./images/logo.png" alt="NextWave Consulting Logo">
       <span>NextWave Consulting</span>
     </div>
     <p>&copy; 2025 NextWave Consulting. All rights reserved.</p>
   </footer>
 </body>
 </html>
-
