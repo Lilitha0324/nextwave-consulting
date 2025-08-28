@@ -1,0 +1,61 @@
+/* --- Global Theme --- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+/* --- Navbar --- */
+nav {
+  background-color: #007BFF;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background-color: #0056b3;
+}
+
+nav a.active {
+  background-color: #fff;
+  color: #007BFF;
+}
+
+/* --- Sections --- */
+section {
+  padding: 60px 20px;
+}
+
+section:nth-child(even) {
+  background-color: #F5F5F5;
+}
+
+h1, h2, h3 {
+  color: #007BFF;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
